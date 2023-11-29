@@ -3,8 +3,8 @@ directories:
   output: dist
 extraResources: ["tools", "external-resources", 'firmwares', "statics", "drivers"]
 
-appId: 'openblock.cc.openblock-link'
-productName: "OpenBlock Link"
+appId: 'net.huintech.scratch-link'
+productName: "CoconutScratchLink"
 publish: # empty provider list = don't publish
 
 mac:
@@ -12,14 +12,14 @@ mac:
   entitlements: buildResources/entitlements.mac.plist
   gatekeeperAssess: true
   hardenedRuntime: true
-  icon: buildResources/OpenBlock-Link.icns
+  icon: buildResources/scratch-arduino-link.icns
   provisioningProfile: embedded.provisionprofile
-  artifactName: "OpenBlock Link ${version}.${ext}"
+  artifactName: "CoconutScratchLink-${version}.${ext}"
   target:
     - dmg
     # - mas
 dmg:
-  title: "OpenBlock Link ${version}"
+  title: "Coconut Scratch Link ${version}"
 # mas:
 #   category: public.app-category.education
 #   entitlements: buildResources/entitlements.mas.plist
@@ -28,7 +28,7 @@ dmg:
 #   icon: buildResources/OpenBlock-Link.icns
 
 win:
-  icon: buildResources/OpenBlock-Link.ico
+  icon: buildResources/scratch-arduino-link.ico
   target:
     # - appx
     - nsis
@@ -42,4 +42,4 @@ nsis:
   allowToChangeInstallationDirectory: true
   include: buildResources/installer.nsh
 #   license: LICENSE
-  artifactName: "OpenBlock Link ${version} Setup.${ext}"
+  artifactName: "CoconutScratchLink-${version}-Setup.${ext}"

@@ -8,12 +8,12 @@ const fs = require('fs');
 const compareVersions = require('compare-versions');
 const del = require('del');
 
-const OpenBlockLink = require('openblock-link');
-const OpenblockResourceServer = require('openblock-resource');
+const ScratchLink = require('scratch-link');
+const ScratchResourceServer = require('scratch-resource');
 const ProgressBar = require('electron-progressbar');
 
 const formatMessage = require('format-message');
-const locales = require('openblock-l10n/locales/link-desktop-msgs');
+const locales = require('scratch-arduino-l10n/locales/link-desktop-msgs');
 const osLocale = require('os-locale');
 
 const {productName, version} = require('../package.json');
@@ -195,11 +195,17 @@ makeTrayMenu = (l, checkingUpdate = false) => [
                 checked: l === 'en'
             },
             {
-                label: '简体中文',
+                label: '한국어',
                 type: 'radio',
-                click: () => handleClickLanguage('zh-cn'),
-                checked: l === 'zh-cn'
-            }
+                click: () => handleClickLanguage('ko'),
+                checked: l === 'ko'
+            },
+            // {
+            //     label: '简体中文',
+            //     type: 'radio',
+            //     click: () => handleClickLanguage('zh-cn'),
+            //     checked: l === 'zh-cn'
+            // }
         ]
     },
     {
@@ -282,7 +288,7 @@ const devToolKey = ((process.platform === 'darwin') ?
 
 const createWindow = () => {
     mainWindow = new BrowserWindow({
-        icon: path.join(__dirname, './icon/OpenBlock-Link.ico'),
+        icon: path.join(__dirname, './icon/scratch-link.ico'),
         width: 400,
         height: 400,
         center: true,
@@ -297,11 +303,11 @@ const createWindow = () => {
     mainWindow.loadFile('./src/index.html');
     mainWindow.setMenu(null);
 
-    if (locale === 'zh-CN') {
-        locale = 'zh-cn';
-    } else if (locale === 'zh-TW') {
-        locale = 'zh-tw';
-    }
+    // if (locale === 'zh-CN') {
+    //     locale = 'zh-cn';
+    // } else if (locale === 'zh-TW') {
+    //     locale = 'zh-tw';
+    // }
     formatMessage.setup({
         locale: locale,
         translations: locales
@@ -360,16 +366,19 @@ const createWindow = () => {
     }
 
     // start link server
-    const link = new OpenBlockLink(dataPath, path.join(resourcePath, 'tools'));
-    link.listen();
+    const link = new ScratchLink(dataPath, path.join(resourcePath, 'tools'));
+    link.start().then(
+        link.listen()
+    );
+    // link.listen();
 
     // start resource server
-    resourceServer = new OpenblockResourceServer(dataPath, path.join(resourcePath, 'external-resources'));
+    resourceServer = new ScratchResourceServer(dataPath, path.join(resourcePath, 'external-resources'));
     resourceServer.listen();
 
 
-    appTray = new Tray(nativeImage.createFromPath(path.join(__dirname, './icon/OpenBlock-Link.ico')));
-    appTray.setToolTip('Openblock Link');
+    appTray = new Tray(nativeImage.createFromPath(path.join(__dirname, './icon/scratch-link.ico')));
+    appTray.setToolTip('Scratch Link');
     appTray.setContextMenu(Menu.buildFromTemplate(makeTrayMenu(locale)));
 
     appTray.on('click', () => {
