@@ -1,7 +1,7 @@
 {
-  "name": "scratch-link-desktop",
-  "productName": "CoconutSccratchLink",
-  "version": "1.0.0",
+  "name": "@huintech/coconut-link-desktop",
+  "productName": "CoconutScratchLink",
+  "version": "0.8.0",
   "description": "Coconut link desktop",
   "main": "src/index.js",
   "author": "coconut",
@@ -11,7 +11,7 @@
     "i18n:src": "mkdirp translations && format-message extract --out-file translations/en.json src/**.js",
     "i18n:push": "tx-push-src scratch-editor link-desktop translations/en.json",
     "fetch:drivers": "rimraf ./drivers && node scripts/download-driver.js",
-    "fetch:resource": "rimraf ./external-resources && node ./node_modules/scratch-resource/script/download.js",
+    "fetch:resource": "rimraf ./external-resources && node ./node_modules/@huintech/scratch-resource/script/download.js",
     "fetch:exts": "rimraf ./external-resources && mkdirp ./external-resources && git clone https://github.com/huintech/external-resources-v2.git external-resources",
     "fetch:firmwares": "rimraf ./firmwares && node ./node_modules/scratch-link/script/download-firmwares.js",
     "fetch:tools": "rimraf ./tools && node ./node_modules/scratch-link/script/download-tools.js",
@@ -45,12 +45,16 @@
     "electron-progressbar": "^2.0.1",
     "os-locale": "^5.0.0",
     "node-localstorage": "^2.2.1",
-      "compare-versions": "^3.6.0"
+    "compare-versions": "^3.6.0",
+    "@huintech/coconut-scratch-l10n": "0.8.0",
+    "coconut-link": "huintech/coconut-link#0.3.0-prerelease.20231130",
+      "@huintech/scratch-resource": "0.8.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "electron": "^8.5.5",
+    "electron": "^13.1.7",
     "electron-builder": "^22.9.1",
+    "electron-rebuild": "^3.2.9",
     "eslint": "^5.16.0",
     "eslint-config-scratch": "^5.0.0",
     "format-message": "^6.2.3",

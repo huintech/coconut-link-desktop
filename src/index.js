@@ -8,12 +8,12 @@ const fs = require('fs');
 const compareVersions = require('compare-versions');
 const del = require('del');
 
-const ScratchLink = require('scratch-link');
-const ScratchResourceServer = require('scratch-resource');
+const ScratchLink = require('coconut-link');
+const ScratchResourceServer = require('@huintech/scratch-resource');
 const ProgressBar = require('electron-progressbar');
 
 const formatMessage = require('format-message');
-const locales = require('scratch-arduino-l10n/locales/link-desktop-msgs');
+const locales = require('@huintech/coconut-scratch-l10n/locales/link-desktop-msgs');
 const osLocale = require('os-locale');
 
 const {productName, version} = require('../package.json');
@@ -199,13 +199,7 @@ makeTrayMenu = (l, checkingUpdate = false) => [
                 type: 'radio',
                 click: () => handleClickLanguage('ko'),
                 checked: l === 'ko'
-            },
-            // {
-            //     label: '简体中文',
-            //     type: 'radio',
-            //     click: () => handleClickLanguage('zh-cn'),
-            //     checked: l === 'zh-cn'
-            // }
+            }
         ]
     },
     {
