@@ -8,7 +8,7 @@ const fs = require('fs');
 const compareVersions = require('compare-versions');
 const del = require('del');
 
-const ScratchLink = require('coconut-link');
+const ScratchLink = require('@huintech/coconut-link');
 const ScratchResourceServer = require('@huintech/scratch-resource');
 const ProgressBar = require('electron-progressbar');
 

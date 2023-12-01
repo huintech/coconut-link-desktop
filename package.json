@@ -1,5 +1,5 @@
 {
-  "name": "@huintech/coconut-link-desktop",
+  "name": "coconut-link-desktop",
   "productName": "CoconutScratchLink",
   "version": "0.8.0",
   "description": "Coconut link desktop",
@@ -13,8 +13,8 @@
     "fetch:drivers": "rimraf ./drivers && node scripts/download-driver.js",
     "fetch:resource": "rimraf ./external-resources && node ./node_modules/@huintech/scratch-resource/script/download.js",
     "fetch:exts": "rimraf ./external-resources && mkdirp ./external-resources && git clone https://github.com/huintech/external-resources-v2.git external-resources",
-    "fetch:firmwares": "rimraf ./firmwares && node ./node_modules/scratch-link/script/download-firmwares.js",
-    "fetch:tools": "rimraf ./tools && node ./node_modules/scratch-link/script/download-tools.js",
+    "fetch:firmwares": "rimraf ./firmwares && node ./node_modules/@huintech/coconut-link/script/download-firmwares.js",
+    "fetch:tools": "rimraf ./tools && node ./node_modules/@huintech/coconut-link/script/download-tools.js",
     "fetch:all": "npm run fetch:drivers && npm run fetch:exts && npm run fetch:firmwares && npm run fetch:tools",
     "fetch:all32": "npm run fetch:drivers && npm run fetch:exts && npm run fetch:firmwares && npm run fetch:tools -- --arch=ia32",
     "start": "electron .",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huintech/scratch-link-desktop.git"
+    "url": "git+https://github.com/huintech/coconut-link-desktop.git"
   },
   "keywords": [
     "coconut",
@@ -37,9 +37,9 @@
     "desktop"
   ],
   "bugs": {
-    "url": "https://github.com/huintech/scratch-link-desktop/issues"
+    "url": "https://github.com/huintech/coconut-link-desktop/issues"
   },
-  "homepage": "https://github.com/huintech/scratch-link-desktop#readme",
+  "homepage": "https://github.com/huintech/coconut-link-desktop#readme",
   "dependencies": {
     "del": "^6.0.0",
     "electron-progressbar": "^2.0.1",
@@ -47,8 +47,8 @@
     "node-localstorage": "^2.2.1",
     "compare-versions": "^3.6.0",
     "@huintech/coconut-scratch-l10n": "0.8.0",
-    "coconut-link": "huintech/coconut-link#0.3.0-prerelease.20231130",
-      "@huintech/scratch-resource": "0.8.0"
+    "@huintech/coconut-link": "0.8.0",
+    "@huintech/scratch-resource": "0.8.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
